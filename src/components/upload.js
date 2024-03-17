@@ -12,13 +12,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
+import CircularProgress from '@mui/material/CircularProgress';
 export default function Upload() {
     
     const [filename,setFilename]=useState();
     const [message,setMessage]=useState();
     const [password,setPassword]=useState();
     const [file,setFile]=useState();
-    
+    const [loader, setLoader] = useState('none');
+
 
     const handleClick=()=>{
    const data=  new FormData()
@@ -30,9 +32,11 @@ export default function Upload() {
  
 
        const uploadfile = async ()=>{
+        setLoader("flex")
     try {
-      const responce = await axios.post("https://oceanbackend-production.up.railway.app/upload",data)
+      const responce = await axios.post("https://fish-it-backend-production.up.railway.app/upload",data)
      alert(responce.data)
+     setLoader("none")
     } catch (error) {
         console.log(error)
     }
@@ -46,7 +50,11 @@ uploadfile();}
     
     return (
         <>
+         
             <Navbar></Navbar>
+            <Box sx={{width:"100vw",height:'100vh',display:loader,position:"absolute",justifyContent:'center'}}>
+                <CircularProgress />
+                </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', height: '80vh',justifyContent:'center' }}>
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', color: 'white',   justifyContent: 'center', height: '70vh', backgroundColor: 'rgba(255, 255, 255, 0.08)', borderRadius: '20px', alignItems: 'center' }}>

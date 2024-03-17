@@ -28,7 +28,7 @@ export default function Download() {
     const navigate = useNavigate();
     const handleClick = (() => {
          setLoader('flex');
-        axios.get(`https://oceanbackend-production.up.railway.app/download/${filename}/${password}`, {
+        axios.get(`https://fish-it-backend-production.up.railway.app/download/${filename}/${password}`, {
             
         })
             .then(response => {
@@ -43,7 +43,7 @@ export default function Download() {
                    
                     setMessage(response.data.text)
                    
-                    window.location.replace(`https://oceanbackend-production.up.railway.app/downloadfile/${filename}/${password}`)
+                    window.location.replace(`https://fish-it-backend-production.up.railway.app/downloadfile/${filename}/${password}`)
                     // setLoader("none")
                 }
              
@@ -62,14 +62,14 @@ export default function Download() {
             <>
                 <Navbar></Navbar>
                 <Box sx={ 
-                    {display:loader, flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+                    {display:"loader", flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
               
 
             
                 <Alert sx={{width:'100vw'}} severity="success">Please Wait downloading will start shortly
               
                 </Alert>
-                <CircularProgress />
+
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'top', height: '100vh', justifyContent: 'center' }}>
                    
