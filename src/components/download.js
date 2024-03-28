@@ -28,7 +28,8 @@ export default function Download() {
     const navigate = useNavigate();
     const handleClick = (() => {
          setLoader('flex');
-        axios.get(`https://fish-it-backend-production.up.railway.app/download/${filename}/${password}`, {
+       //https://fish-it-backend-production.up.railway.app/
+        axios.get(`https://fish-it-backend.onrender.com/download/${filename}/${password}`, {
             
         })
             .then(response => {
