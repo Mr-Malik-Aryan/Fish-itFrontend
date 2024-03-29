@@ -29,7 +29,7 @@ export default function Download() {
     const handleClick = (() => {
          setLoader('flex');
        // https://fish-it-backend.onrender.com/download/
-        axios.get(`https://fish-it-backend-production.up.railway.app/${filename}/${password}`, {
+        axios.get(`https://fish-it-backend-production.up.railway.app/download${filename}/${password}`, {
             
         })
             .then(response => {
