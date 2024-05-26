@@ -29,7 +29,7 @@ export default function Download() {
     const handleClick = (() => {
          setLoader('flex');
        // https://fish-it-backend.onrender.com/download/
-        axios.get(`https://fish-it-backend.onrender.com/download/${filename}/${password}`, {
+        axios.get(`http://13.202.121.242:8080/download/${filename}/${password}`, {
             
         })
             .then(response => {
@@ -44,7 +44,7 @@ export default function Download() {
                    
                     setMessage(response.data.text)
                    
-                    window.location.replace(`https://fish-it-backend.onrender.com/downloadfile/${filename}/${password}`)
+                    window.location.replace(`http://13.202.121.242:8080/downloadfile/${filename}/${password}`)
                     // setLoader("none")
                 }
              
