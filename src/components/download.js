@@ -29,7 +29,7 @@ export default function Download() {
     const handleClick = (() => {
          setLoader('flex');
        // https://fish-it-backend.onrender.com/download/
-        axios.get(`http://13.202.121.242:8080/download/${filename}/${password}`, {
+        axios.get(`https://fish-tree-production.up.railway.app/download/${filename}/${password}`, {
             
         })
             .then(response => {
@@ -44,7 +44,7 @@ export default function Download() {
                    
                     setMessage(response.data.text)
                    
-                    window.location.replace(`http://13.202.121.242:8080/downloadfile/${filename}/${password}`)
+                    window.location.replace(`https://fish-tree-production.up.railway.app/downloadfile/${filename}/${password}`)
                     // setLoader("none")
                 }
              
