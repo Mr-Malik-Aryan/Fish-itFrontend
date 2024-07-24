@@ -35,7 +35,7 @@ export default function Upload() {
         setLoader("flex")
            // https://fish-it-backend.onrender.com/upload
     try {
-      const responce = await axios.post("http://13.202.121.242:8080/upload",data)
+      const responce = await axios.post("https://fish-tree-production.up.railway.app//upload",data)
      alert(responce.data)
      setLoader("none")
     } catch (error) {
