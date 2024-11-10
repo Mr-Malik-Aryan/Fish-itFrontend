@@ -26,7 +26,12 @@ export default function Upload() {
 
     const handleClick = () => {
         if (!filename) {
-            setError("Please enter a valid filename"); // Set the error message
+            alert("Please enter a valid filename");
+            setLoader('none');
+            return;
+        }
+           if (!password) {
+            alert("Please enter a valid password"); 
             setLoader('none');
             return;
         }
