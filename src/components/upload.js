@@ -13,6 +13,7 @@ import axios from 'axios';
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 import CircularProgress from '@mui/material/CircularProgress';
+
 export default function Upload() {
     
     const [filename,setFilename]=useState();
@@ -20,33 +21,42 @@ export default function Upload() {
     const [password,setPassword]=useState();
     const [file,setFile]=useState();
     const [loader, setLoader] = useState('none');
+    const [error, setError] = useState('');
 
 
-    const handleClick=()=>{
-   const data=  new FormData()
+    const handleClick = () => {
+        if (!filename) {
+            setError("Please enter a valid filename"); // Set the error message
+            setLoader('none');
+            return;
+        }
+
+        setError('');
+        setLoader('flex');
+
+    const data=  new FormData()
  //console.log(filename,message,password,file)
- data.append("file",file)
-   data.append("name",filename);
-   data.append("text",message)
-   data.append("password",password)
+    data.append("file",file)
+    data.append("name",filename);
+    data.append("text",message)
+    data.append("password",password)
  
 
-       const uploadfile = async ()=>{
+    const uploadfile = async ()=>{
         setLoader("flex")
            // https://fish-it-backend.onrender.com/upload
-    try {
-      const responce = await axios.post("https://fishitbackend-production.up.railway.app/upload",data)
-     alert(responce.data)
-     setLoader("none")
-    } catch (error) {
-        console.log(error)
-    }
-          
-    
-          
-       
-}
-uploadfile();}
+        try {
+            const response = await axios.post("https://fishitbackend-production.up.railway.app/upload", data);
+            alert(response.data);
+            setLoader('none');
+        } catch (error) {
+            console.error(error);
+            setError("An error occurred while uploading the file.");
+            setLoader('none');
+        }
+    };
+    uploadfile();
+};
 
     
     return (

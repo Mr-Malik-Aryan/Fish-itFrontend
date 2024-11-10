@@ -27,7 +27,15 @@ export default function Download() {
     formData.append('password', password);  // Replace with actual password
     const navigate = useNavigate();
     const handleClick = (() => {
-         setLoader('flex');
+
+        // if the filename does not exist, then it returns back error
+        if (!filename) {
+            alert("Please enter a valid filename");
+            setLoader('none');
+            return;
+        }
+
+        setLoader('flex');
        // https://fish-it-backend.onrender.com/download/
        
         axios.get(`https://fishitbackend-production.up.railway.app/download/${filename}/${password}`, {
