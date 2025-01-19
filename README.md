@@ -82,7 +82,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📧 Contact
 
-Your Name - [@ryan62010](https://x.com/ryan62010)
+My twitter - [@ryan62010](https://x.com/ryan62010)
 
 Project Link: [https://github.com/Mr-Malik-Aryan/Fish-itFrontend](https://github.com/Mr-Malik-Aryan/Fish-itFrontend)
 
